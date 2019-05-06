@@ -31,9 +31,11 @@
                         <form method="POST" action="{{ route('register') }}" class="register-form" id="login-form">
                             @csrf
                             <div class="form-group">
-                                <label for="your_name2"><i class="fa fa-user"></i></label>
-                                <input type="text" value="{{ old('name') }}" name="name" id="your_name2"
-                                       placeholder="Votre nom complet"/>
+                                <select class="form-control" name="name" id="your_name2">
+                                    <option value="Ali Mansouri">Ali Mansouri</option>
+                                    <option value="Sana Akroud">Sana Akroud</option>
+                                    <option value="Ahmed Amkar">Ahmed Amkar</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="your_name"><i class="fa fa-user"></i></label>

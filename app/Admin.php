@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Admin extends Authenticatable
 {
+    protected $guard = 'addmin';
+
     protected $fillable = [
         'name', 'email', 'password',
     ];
