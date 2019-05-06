@@ -52,7 +52,7 @@
                             </div>
 
                             <div class="form-group form-button">
-                                <input type="submit" name="signin" id="signin" class="form-submit" value="Connexion"/>
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="Registre"/>
                             </div>
                             @if(count($errors)>0)
                                 <ul class="alert alert-danger">
