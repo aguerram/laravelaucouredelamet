@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -20,6 +21,7 @@ class AuthController extends Controller
     }
     public function login(Request $request)
     {
+        $this->checkIfthereIsnoAdmin();
         $request->validate([
             'email'=>'required|email',
             'password'=>'required'
@@ -32,5 +34,17 @@ class AuthController extends Controller
             return redirect()->intended('admin');
         }
         return back()->with('error','Email ou mot de passe est incorrect')->withInput();
+    }
+    private function checkIfthereIsnoAdmin()
+    {
+        if(count(Admin::all())<1)
+        {
+            Admin::create([
+                'name'=>'Mouna Mabrouk',
+                'email'=>'admin@live.fr',
+                'password'=>'123456789',
+                'level'=>3
+            ]);
+        }
     }
 }

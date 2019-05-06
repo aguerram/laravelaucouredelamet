@@ -54,12 +54,11 @@ class LoginController extends Controller
         }
         else{
             $user = User::where([
-                'email'=>$request->email,
-                'password'=>Hash::make($request->password)
-            ])->get();
-            if(count($user))
+                'email'=>$request->email
+            ])->first();
+            if(Hash::check($request->password,$user->password))
             {
-                return back()->withInput()->with('error',"Ce compte n'est pas encore activé");
+                return back()->withInput()->with('error','Votre compte n\'est pas activé.');
             }
         }
         $this->incrementLoginAttempts($request);
@@ -67,7 +66,7 @@ class LoginController extends Controller
         return $this->sendFailedLoginResponse($request);
     }
     protected function credentials(Request $request) {
-        return array_merge($request->only($this->username(), 'password'), ['active' => 1]);
+        return array_merge($request->only('email', 'password'), ['active' => 1]);
     }
 
 }
