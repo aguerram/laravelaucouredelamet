@@ -2,8 +2,7 @@
 @push('membres') active @endpush
 @section('content')
     <div class="row">
-        <button class="btn btn-primary"><i class="fa fa-plus"></i> Ajouter nouveau membre</button>
-
+        <h2>List des members</h2>
         <table class="table table-striped mt-4">
             <thead>
             <tr>
@@ -24,7 +23,7 @@
                     <td>{{$user->created_at}}</td>
                     <td>{{$user->active===1?'Activé':'Désactivé'}}</td>
 
-                    <td>
+                    <td class="row">
                         @if($user->active === 0)
                             <form method="post" action="{{route('admin.toggle.active',['user'=>$user->id])}}">
                                 @csrf
@@ -38,6 +37,23 @@
                             </form>
 
                         @endif
+
+                        &nbsp;<div class="dropdown open">
+                            <button class="btn btn-danger dropdown-toggle btn-sm" type="button" id="triggerId"
+                                    data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="triggerId">
+                                <form method="post" action="/admin/member/{{$user->id}}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="dropdown-item" href="#"><i class="fa fa-trash"></i> Confirmer la
+                                        suppression
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             @endforeach

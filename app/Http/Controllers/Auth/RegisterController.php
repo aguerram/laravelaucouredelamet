@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\SavedName;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Registered;
@@ -48,16 +49,23 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
+    public function showRegistrationForm()
+    {
+        $sname = SavedName::where(['user_id'=>['=',0]])->get();
+        return view('auth.register',compact('sname'));
+    }
+
     protected function validator(array $data)
     {
-        $data['name'] = ucfirst($data['name']);
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255','unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ],[
-            'name.unique'=>$data['name'].' est déjà pris.'
+            'name.unique'=>'Ce nom est déjà pris.'
         ]);
+
     }
 
     /**
@@ -68,11 +76,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $sname = SavedName::where([
+            'name'=>$data['name']
+        ])->first();
+        if(!$sname)
+            return back()->withInput();
+
+        $user = User::create([
             'name' => ucfirst($data['name']),
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        $sname->user_id = $user->id;
+        $sname->save();
+        return $user;
     }
     public function register(Request $request)
     {

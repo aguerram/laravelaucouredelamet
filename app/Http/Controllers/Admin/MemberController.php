@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\SavedName;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -86,7 +87,15 @@ class MemberController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $name = $user->name;
+        $sname = SavedName::where(['name'=>$name])->first();
+        $sname->user_id = 0;
+        $sname->save();
+
+        $user->delete();
+
+        return back();
     }
 
     public function toggle(Request $request,User $user)

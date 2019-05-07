@@ -24,15 +24,12 @@
             <li class="nav-item">
                 <a class="nav-link @stack('accueil')" href="/admin">Accueil <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link @stack('membres')" href="/admin/member">Les membres</a>
-            </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown @stack('membres')">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
-                   aria-expanded="false">Dropdown</a>
+                   aria-expanded="false">Les membres</a>
                 <div class="dropdown-menu" aria-labelledby="dropdownId">
-                    <a class="dropdown-item" href="#">Action 1</a>
-                    <a class="dropdown-item" href="#">Action 2</a>
+                    <a class="dropdown-item" href="/admin/member">List des membres</a>
+                    <a class="dropdown-item" href="/admin/membername">Gérer les nom des membres</a>
                 </div>
             </li>
         </ul>
