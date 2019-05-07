@@ -16,6 +16,7 @@ class CreateSavedMembersNameTable extends Migration
         Schema::create('saved_names', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->unique();
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }
