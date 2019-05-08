@@ -11,8 +11,14 @@
 |
 */
 
+<<<<<<< HEAD
+=======
+use Illuminate\Support\Facades\Route;
+
+>>>>>>> a2b7e7312f08e63cd6d22e6babc2f69ea4ba8061
 Route::redirect('/','/login');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/projet/{project}', 'HomeController@projetIndex')->name('projet');
