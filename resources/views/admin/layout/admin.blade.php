@@ -22,7 +22,10 @@
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link @stack('accueil')" href="/admin">Accueil <span class="sr-only">(current)</span></a>
+                <a class="nav-link @stack('accueil')" href="/admin">Accueil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @stack('projects')" href="/admin/project">Les projets</a>
             </li>
             <li class="nav-item dropdown @stack('membres')">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
