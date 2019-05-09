@@ -12,6 +12,7 @@
         #carouselId {
             background-color: #424242 !important;
         }
+
     </style>
 @endsection
 @section('content')
@@ -75,6 +76,61 @@
                                 </a>
                             </div>
                         @endif
+                    </div>
+                    <div class="card-footer">
+                        <div class="container">
+                            <p>Commentaires</p>
+                            <hr>
+                            <form class="col-12" method="post" action="/comment" enctype="multipart/form-data">
+                                @csrf
+                                <div class="form-group" style="display: flex;align-items: center;">
+                                    <input type="hidden" value="{{$project->id}}" name="prjt">
+                                    <input type="text"
+                                           class="form-control" required value="{{old('content')}}" name="content"
+                                           placeholder="Commentaire">
+                                    <input type="file" name="image" id="imageselect" accept="image/*"
+                                           style="display:none;">
+                                    <div class="input-group-append">
+                                        <div class="btn-group">
+                                            <button id="selectbtn" type="button" class="btn btn-sm btn-nooutline"><i
+                                                        class="fa fa-image input-group-text"></i>
+                                            </button>
+                                            <button type="submit" class="btn btn-success btn-sm btn-nooutline"><i
+                                                        class="fa fa-long-arrow-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <hr>
+                            <div class="col-12">
+                                <ul class="list-group">
+                                    @foreach($project->comments as $comment)
+                                        <li class="list-group-item mt-2"><b>{{$comment->user->name}}</b>
+                                            : {{$comment->content}}
+                                            @if(count($comment->images)>0)
+                                                <br>
+                                                <a href="{{asset('storage/'.$comment->images[0]->link)}}"
+                                                   target="_blank">
+                                                    <img style="max-height: 256px"
+                                                         src="{{asset('storage/'.$comment->images[0]->link)}}">
+                                                </a>
+                                            @endif
+                                            <br>
+                                            <small><i class="fa fa-clock-o"></i> {{$comment->created_at}}
+                                                @if($comment->user->id === \Illuminate\Support\Facades\Auth::user()->id)
+                                                    <form class="float-right" method="post" action="/comment/{{$comment->id}}">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-link btn-sm"><i class="fa fa-trash text-danger"></i> Supprimer</button>
+                                                    </form>
+                                                @endif
+                                            </small>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

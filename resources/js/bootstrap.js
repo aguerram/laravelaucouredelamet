@@ -9,7 +9,9 @@ window._ = require('lodash');
 try {
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
-
+    $('#selectbtn').click(function () {
+        $("#imageselect").trigger('click');
+    })
     require('bootstrap');
 } catch (e) {}
 

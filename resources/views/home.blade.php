@@ -4,6 +4,7 @@
 @endsection
 @section('style')
     <style>
+
     </style>
 @endsection
 @section('content')

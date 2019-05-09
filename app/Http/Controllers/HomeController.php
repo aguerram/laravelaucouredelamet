@@ -24,12 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $projects = Project::with('images')->orderBy('created_at','desc')->get();
+        $projects = Project::with(['images'])->orderBy('created_at','desc')->get();
         return view('home',compact('projects'));
     }
     public function projetIndex(Project $project)
     {
-        $project->load('images');
+        $project->load(['images','comments'=>function($query){
+            $query->orderBy('created_at','desc');
+        },'comments.user','comments.images']);
         return view('project',compact('project'));
     }
 }

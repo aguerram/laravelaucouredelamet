@@ -13,4 +13,8 @@ class Project extends Model
     {
         return $this->hasMany('App\Image','parent_id')->where('type','project');
     }
+    public function comments()
+    {
+        return $this->hasMany('App\Comment','parent_id');
+    }
 }
