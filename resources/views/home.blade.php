@@ -12,7 +12,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8 col-12">
                 <div class="card">
-                    <div class="card-header">Les projets actuel</div>
+                    <div class="card-header">Les projet de l'association au coeur de l'amitié</div>
 
                     <div id="projetcs" class="card-body">
                         @if (session('status'))
