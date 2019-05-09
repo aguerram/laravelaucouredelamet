@@ -40,6 +40,25 @@
             <input class="form-control mr-sm-2" type="text" placeholder="Search">
             <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
         </form>
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <i class="fa fa-user-circle fa-2x"></i> <span class="caret"></span>
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/admin/logout"
+                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        Connectez - Out
+                    </a>
+
+                    <form id="logout-form" action="/admin/logout" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </div>
+            </li>
+        </ul>
     </div>
 </nav>
 <div class="container mt-4">

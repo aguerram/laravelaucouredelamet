@@ -12,7 +12,7 @@ class AuthController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['guest:admin']);
+        $this->middleware(['guest:admin'])->except(['logout']);
     }
 
     public function authpage(Request $request)
@@ -46,5 +46,10 @@ class AuthController extends Controller
                 'level'=>3
             ]);
         }
+    }
+    public function logout()
+    {
+        Auth::guard('admin')->logout();
+        return redirect('/admin');
     }
 }

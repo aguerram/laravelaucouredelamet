@@ -6,6 +6,7 @@ Route::resource('/','Admin\HomeController');
 
 Route::get('login','Admin\AuthController@authpage')->name('admin.login.page');
 Route::post('login','Admin\AuthController@login')->name('admin.login');
+Route::post('logout','Admin\AuthController@logout');
 
 Route::resource('member','Admin\MemberController');
 Route::resource('membername','Admin\SavedNamesController');
