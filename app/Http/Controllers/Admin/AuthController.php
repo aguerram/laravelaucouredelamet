@@ -14,7 +14,6 @@ class AuthController extends Controller
     {
         $this->middleware(['guest:admin'])->except(['logout']);
     }
-
     public function authpage(Request $request)
     {
         return view('admin.auth.login');
@@ -31,7 +30,7 @@ class AuthController extends Controller
             'password'=>$request->password
         ],$request->filled('remember')))
         {
-            return redirect()->intended('admin');
+            return redirect()->intended('admin/member');
         }
         return back()->with('error','Email ou mot de passe est incorrect')->withInput();
     }
@@ -50,6 +49,6 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::guard('admin')->logout();
-        return redirect('/admin');
+        return redirect('/admin/member');
     }
 }
