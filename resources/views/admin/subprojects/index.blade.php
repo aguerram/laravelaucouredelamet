@@ -7,7 +7,7 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>IzbiD</th>
+                    <th>ID</th>
                     <th>Titre</th>
                     <th>Titre de projet global</th>
                     <th>Par</th>
