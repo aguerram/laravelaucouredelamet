@@ -8,9 +8,8 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>ID Projet</th>
                     <th>Titre</th>
-                    <th>Titre de projet</th>
+                    <th>Titre de projet global</th>
                     <th>Par</th>
                     <th>Date debut</th>
                     <th>Date de fin</th>
@@ -23,7 +22,6 @@
                 @foreach($sb as $s)
                     <tr>
                         <th>{{$s->id}}</th>
-                        <th>{{$s->project->id}}</th>
                         <td>{{$s->title}}</td>
                         <td>{{$s->project->title}}</td>
                         <th>{{$s->user->name}}</th>
