@@ -10,7 +10,7 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Disponible</th>
+                    <th>Compte créer</th>
                     <th>Nom</th>
                     <th>Prénom</th>
                     <th>Action</th>
