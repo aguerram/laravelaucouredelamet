@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col">
             <h2>Gestion des projets</h2>
-            <a href="/admin/project/create" class="btn btn-success">Ajouter nouveau projet</a>
+            <a href="/admin/project/create" class="btn btn-success">Ajouter un nouveau projet</a>
             <br>
             <table class="table table-striped">
                 <thead>
