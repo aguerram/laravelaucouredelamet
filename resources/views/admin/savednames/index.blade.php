@@ -10,7 +10,6 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>ID Member</th>
                     <th>Disponible</th>
                     <th>Nom</th>
                     <th>Prénom</th>
@@ -22,13 +21,6 @@
                     <tr>
                         <td>{{$sn->id}}</td>
                         <td>{{$sn->user_id>0?$sn->user_id:''}}</td>
-                        <td>
-                            @if($sn->user_id>0)
-                                <span class="badge badge-pill badge-danger">No</span>
-                            @else
-                                <span class="badge badge-pill badge-success">Oui</span>
-                            @endif
-                        </td>
                         <td>{{substr($sn->name,0,strpos($sn->name,' '))}}</td>
                         <td>{{substr($sn->name,strpos($sn->name,' '))}}</td>
                         <td class="row">
