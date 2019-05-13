@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col">
-            <h2>Gestion des bénéficiaires</h2>
+            <h2>Géstion des noms des bénéficiaires</h2>
             <a href="/admin/membername/create" class="btn btn-success">Ajouter un nouveau nom</a>
             <br>
             <table class="table table-striped mt-2">

@@ -27,8 +27,8 @@
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
                    aria-expanded="false">Membres</a>
                 <div class="dropdown-menu" aria-labelledby="dropdownId">
-                    <a class="dropdown-item" href="/admin/membername">Gestion des bénéficiaires</a>
-                    <a class="dropdown-item" href="/admin/member">Gestion des comptes</a>
+                    <a class="dropdown-item" href="/admin/membername">Géstion des bénéficiaires</a>
+                    <a class="dropdown-item" href="/admin/member">Géstion des comptes</a>
                 </div>
             </li>
             <li class="nav-item">
