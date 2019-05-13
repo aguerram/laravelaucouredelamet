@@ -7,7 +7,9 @@
         <div class="row justify-content-center">
             <div class="col-md-8 col-12">
                 <nav class="breadcrumb">
-                    <a class="breadcrumb-item" href="/admin/subproject">Sous-projets</a>
+                    <a class="breadcrumb-item" href="/">Accueil</a>
+                    <a class="breadcrumb-item" href="/projet/{{$sb->project->id}}">{{$sb->project->title}}
+                        <small>(Projet global)</small></a>
                     <span class="breadcrumb-item active">{{$sb->title}}</span>
                 </nav>
                 <div class="card">
@@ -18,20 +20,6 @@
                         <i class="fa fa-clock-o"> {{$sb->created_at}}</i>
                     </p>
                     <hr/>
-                    <div class="row justify-content-end">
-                        <div class="btn-group">
-                            @if(!$sb->active)
-                                <a href="/admin/subproject/activate/{{$sb->id}}" class="btn btn-success"><i
-                                            class="fa fa-check"></i> Valider</a>
-                            @endif
-                            <form action="/admin/subproject/{{$sb->id}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Supprimer
-                                </button>
-                            </form>
-                        </div>
-                    </div>
                     <div id="projetcs" class="card-body">
                         <p class="text-justify">
                             {{$sb->content}}

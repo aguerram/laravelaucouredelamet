@@ -37,4 +37,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         //'active'=>'boolean'
     ];
+
+    public function subprojects()
+    {
+        return $this->hasMany('App\SubProject');
+    }
 }

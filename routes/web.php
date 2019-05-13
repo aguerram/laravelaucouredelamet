@@ -18,6 +18,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/projet/{project}', 'HomeController@projetIndex')->name('projet');
 
+Route::get('/profile','HomeController@profile');
+
 Route::resource('comment','CommentController');
 
 Route::resource('subproject','SubProjectController');

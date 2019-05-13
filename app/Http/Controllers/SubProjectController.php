@@ -80,9 +80,11 @@ class SubProjectController extends Controller
      * @param  \App\SubProject $subProject
      * @return \Illuminate\Http\Response
      */
-    public function show(SubProject $subProject)
+    public function show($subProject)
     {
-
+        $sb = SubProject::findOrFail($subProject);
+        $sb->load(['user','images','project']);
+        return view('subproject.show',compact('sb'));
     }
 
     /**

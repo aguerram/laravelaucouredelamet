@@ -8,7 +8,7 @@
         @if(isset($project->subprojects))
             <ul class="mt-2 list-group">
                 @foreach($project->subprojects as $sb)
-                    <a href="/subproject" class="list-group-item list-group-item-action">
+                    <a href="/subproject/{{$sb->id}}" class="list-group-item list-group-item-action">
                         <b>{{$sb->title}}</b>
                         <br>
                         <small><i class="fa fa-clock-o"></i> {{$sb->created_at}}</small>

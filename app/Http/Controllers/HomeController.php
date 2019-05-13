@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Project;
 use App\SubProject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -38,5 +39,13 @@ class HomeController extends Controller
         }]);
 
         return view('project',compact('project','subprojects'));
+    }
+
+    //Profile section
+    public function profile(Request $request)
+    {
+        $user = Auth::user();
+        $user->load(['subprojects']);
+        return view('profile.index',compact('user'));
     }
 }

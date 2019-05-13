@@ -13,7 +13,11 @@
                 </nav>
             </div>
             <div class="col-md-8 col-12 card pt-3">
-
+                @if(session('success'))
+                    <div class="alert alert-success">
+                        {{session('success')}}
+                    </div>
+                @endif
                 <form class="col-12" method="post" action="/subproject" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
@@ -55,11 +59,7 @@
                             </div>
                         </div>
                     @endif
-                    @if(session('success'))
-                        <div class="alert alert-success">
-                            {{session('success')}}
-                        </div>
-                    @endif
+
                 </form>
             </div>
         </div>
