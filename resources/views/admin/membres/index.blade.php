@@ -2,7 +2,7 @@
 @push('membres') active @endpush
 @section('content')
     <div class="row">
-        <h2>List des members</h2>
+        <h2>Gestion des comptes</h2>
         <table class="table table-striped mt-4">
             <thead>
             <tr>

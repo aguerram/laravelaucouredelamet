@@ -3,16 +3,17 @@
 @section('content')
     <div class="row">
         <div class="col">
-            <h2>List des noms disponibles</h2>
-            <a href="/admin/membername/create" class="btn btn-success">Ajouter nouveau nom</a>
+            <h2>Gestion des bénéficiaires</h2>
+            <a href="/admin/membername/create" class="btn btn-success">Ajouter un nouveau nom</a>
             <br>
-            <table class="table table-striped">
+            <table class="table table-striped mt-2">
                 <thead>
                 <tr>
                     <th>ID</th>
                     <th>ID Member</th>
                     <th>Disponible</th>
                     <th>Nom</th>
+                    <th>Prénom</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -20,7 +21,7 @@
                 @foreach($snames as $sn)
                     <tr>
                         <td>{{$sn->id}}</td>
-                        <td>{{$sn->user_id>0?$sn->user_id:'NaN'}}</td>
+                        <td>{{$sn->user_id>0?$sn->user_id:''}}</td>
                         <td>
                             @if($sn->user_id>0)
                                 <span class="badge badge-pill badge-danger">No</span>
@@ -28,7 +29,8 @@
                                 <span class="badge badge-pill badge-success">Oui</span>
                             @endif
                         </td>
-                        <td>{{$sn->name}}</td>
+                        <td>{{substr($sn->name,0,strpos($sn->name,' '))}}</td>
+                        <td>{{substr($sn->name,strpos($sn->name,' '))}}</td>
                         <td class="row">
                             <a href="/admin/membername/{{$sn->id}}/edit" title="Modifier" class="btn btn-warning btn-sm"><i
                                         class="fa fa-pencil"></i></a>

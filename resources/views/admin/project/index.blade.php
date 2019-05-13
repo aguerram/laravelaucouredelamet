@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col">
-            <h2>List des projets</h2>
+            <h2>Gestion des projets</h2>
             <a href="/admin/project/create" class="btn btn-success">Ajouter nouveau projet</a>
             <br>
             <table class="table table-striped">
