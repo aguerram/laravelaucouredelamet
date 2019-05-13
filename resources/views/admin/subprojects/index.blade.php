@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col">
-            <h2>List des sous-projets</h2>
+            <h2>Liste des sous-projets</h2>
             <table class="table table-striped">
                 <thead>
                 <tr>
