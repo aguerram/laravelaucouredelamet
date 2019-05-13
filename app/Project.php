@@ -17,4 +17,14 @@ class Project extends Model
     {
         return $this->hasMany('App\Comment','parent_id');
     }
+    public function subprojects(){
+        return $this->hasMany('App\SubProject');
+    }
+    public static function boot() {
+        parent::boot();
+
+        static::deleting(function($project) { // before delete() method call this
+            $project->subprojects()->delete();
+        });
+    }
 }

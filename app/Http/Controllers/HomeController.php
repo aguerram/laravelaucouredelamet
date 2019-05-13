@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Project;
+use App\SubProject;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -29,9 +30,13 @@ class HomeController extends Controller
     }
     public function projetIndex(Project $project)
     {
+        $subprojects = SubProject::where('active',true)->orderBy('created_at','desc');
         $project->load(['images','comments'=>function($query){
             $query->orderBy('created_at','desc');
-        },'comments.user','comments.images']);
-        return view('project',compact('project'));
+        },'comments.user','comments.images','subprojects'=>function($query){
+            $query->where('active',true);
+        }]);
+
+        return view('project',compact('project','subprojects'));
     }
 }

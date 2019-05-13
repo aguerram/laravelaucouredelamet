@@ -9,8 +9,8 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>#</th>
-                    <th># Member</th>
+                    <th>ID</th>
+                    <th>ID Member</th>
                     <th>Disponible</th>
                     <th>Nom</th>
                     <th>Action</th>

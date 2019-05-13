@@ -6,8 +6,9 @@
         <table class="table table-striped mt-4">
             <thead>
             <tr>
-                <th>#</th>
+                <th>ID</th>
                 <th>Nom</th>
+                <th>Prénom</th>
                 <th>Email</th>
                 <th>Créé à</th>
                 <th>Etat actuel</th>
@@ -18,7 +19,8 @@
             @foreach($users as $user)
                 <tr>
                     <th>{{$user->id}}</th>
-                    <td>{{$user->name}}</td>
+                    <td>{{substr($user->name,0,strpos($user->name,' '))}}</td>
+                    <td>{{substr($user->name,strpos($user->name,' '))}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->created_at}}</td>
                     <td>{{$user->active===1?'Activé':'Désactivé'}}</td>

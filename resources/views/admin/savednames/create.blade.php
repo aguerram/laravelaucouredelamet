@@ -10,10 +10,14 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="">Nom Complet</label>
+                                <label for="">Nom</label>
                                 <input type="text"
-                                       class="form-control" name="name" value="{{old('name')}}" aria-describedby="helpId" placeholder="">
-                                <small id="helpId" class="form-text text-muted">Nom complete d membre</small>
+                                       class="form-control" name="nom" value="{{old('nom')}}" aria-describedby="helpId" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Prénom</label>
+                                <input type="text"
+                                       class="form-control" name="prenom" value="{{old('prenom')}}" aria-describedby="helpId" placeholder="">
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success">Ajouter</button>

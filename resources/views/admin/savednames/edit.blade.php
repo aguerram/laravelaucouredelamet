@@ -11,10 +11,14 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="">Nom Complet</label>
+                                    <label for="">Nom</label>
+                                    <input type="text"
+                                        class="form-control" name="nom" value="{{substr($sname->name,0,strpos($sname->name,' '))}}" aria-describedby="helpId" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Prénom</label>
                                 <input type="text"
-                                       class="form-control" name="name" value="{{$sname->name}}" aria-describedby="helpId" placeholder="">
-                                <small id="helpId" class="form-text text-muted">Nom complete d membre</small>
+                                       class="form-control" name="prenom" value="{{substr($sname->name,strpos($sname->name,' '))}}" aria-describedby="helpId" placeholder="">
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success">Modifier</button>

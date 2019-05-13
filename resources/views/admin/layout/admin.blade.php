@@ -34,6 +34,9 @@
             <li class="nav-item">
                 <a class="nav-link @stack('projects')" href="/admin/project">Les projets</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link @stack('subprojects')" href="/admin/subproject">Les sous-projets</a>
+            </li>
             
         </ul>
         <form class="form-inline my-2 my-lg-0">

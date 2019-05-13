@@ -39,14 +39,12 @@ class SavedNamesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'=>'required|unique:saved_names'
-        ],[
-            'name.required'=>'le champ Nom Complet est requis !',
-            'name.unique'=>$request->name.' est déjà pris.'
+            'nom'=>'required',
+            'prenom'=>'required',
         ]);
-
+        
         SavedName::create([
-            'name'=>ucwords($request->name),
+            'name'=>ucwords($request->nom.' '.$request->prenom),
             'user_id'=>0
         ]);
         return redirect('/admin/membername/');
@@ -85,18 +83,16 @@ class SavedNamesController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name'=>'required|unique:saved_names,name,'.$id
-        ],[
-            'name.required'=>'le champ Nom Complet est requis !',
-            'name.unique'=>$request->name.' est déjà pris.'
+            'nom'=>'required',
+            'prenom'=>'required',
         ]);
         $sname = SavedName::findOrFail($id);
-        $sname->name = $request->name;
+        $sname->name = ucwords($request->nom.' '.$request->prenom);
         $sname->save();
         if($sname->user_id > 0 )
         {
             $user = User::findOrFail($sname->user_id);
-            $user->name = $request->name;
+            $user->name = ucwords($request->nom.' '.$request->prenom);
             $user->save();
         }
         return redirect('/admin/membername/');

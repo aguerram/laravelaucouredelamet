@@ -18,13 +18,19 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8 col-12">
+            <div class="col-12">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item active" aria-current="page"><a href="/">Accueil</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Projet</li>
                     </ol>
                 </nav>
+            </div>
+            <div class="col-md-4 col-12">
+                @include('layouts.subprojects')
+            </div>
+            <div class="col-md-8 col-12">
+
                 <div class="card">
 
                     <h1 class="px-3 pt-3 text-justify">{{$project->title}}</h1>
@@ -76,6 +82,7 @@
                                 </a>
                             </div>
                         @endif
+
                     </div>
                     <div class="card-footer">
                         <div class="container">
@@ -119,10 +126,13 @@
                                             <br>
                                             <small><i class="fa fa-clock-o"></i> {{$comment->created_at}}
                                                 @if($comment->user->id === \Illuminate\Support\Facades\Auth::user()->id)
-                                                    <form class="float-right" method="post" action="/comment/{{$comment->id}}">
+                                                    <form class="float-right" method="post"
+                                                          action="/comment/{{$comment->id}}">
                                                         @method('DELETE')
                                                         @csrf
-                                                        <button type="submit" class="btn btn-link btn-sm"><i class="fa fa-trash text-danger"></i> Supprimer</button>
+                                                        <button type="submit" class="btn btn-link btn-sm"><i
+                                                                    class="fa fa-trash text-danger"></i> Supprimer
+                                                        </button>
                                                     </form>
                                                 @endif
                                             </small>

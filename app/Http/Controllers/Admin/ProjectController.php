@@ -6,6 +6,7 @@ use App\Image;
 use App\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class ProjectController extends Controller
 {
@@ -16,7 +17,7 @@ class ProjectController extends Controller
 
     public function index()
     {
-        $projects = Project::with('images')->get();
+        $projects = Project::with(['images'])->orderBy('id','desc')->get();
         return view('admin.project.index', compact('projects'));
     }
 
@@ -39,7 +40,7 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|min:4|max:255|unique:projects',
+            'title' => 'required|min:4|max:191|unique:projects',
             'content' => 'required|min:4',
             'images.*'=>'required|image',
             'start_date' => 'required|date',
@@ -141,6 +142,7 @@ class ProjectController extends Controller
     {
         $prjt = Project::findOrFail($id);
         $prjt->delete();
+
         return back();
     }
 }

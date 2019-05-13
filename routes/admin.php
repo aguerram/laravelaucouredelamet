@@ -11,6 +11,8 @@ Route::post('logout','Admin\AuthController@logout');
 Route::resource('member','Admin\MemberController');
 Route::resource('membername','Admin\SavedNamesController');
 Route::resource('project','Admin\ProjectController');
+Route::resource('subproject','Admin\SubProjectController');
+Route::get('subproject/activate/{sb}','Admin\SubProjectController@valider');
 
 Route::redirect('/', 'admin/member');
 
