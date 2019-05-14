@@ -32,10 +32,10 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link @stack('projects')" href="/admin/project">Les projets</a>
+                <a class="nav-link @stack('projects')" href="/admin/project">Projets globales</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link @stack('subprojects')" href="/admin/subproject">Les sous-projets</a>
+                <a class="nav-link @stack('subprojects')" href="/admin/subproject">Sous-projets</a>
             </li>
             
         </ul>

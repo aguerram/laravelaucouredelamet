@@ -11,7 +11,7 @@ class SavedNamesController extends Controller
     public function __construct()
     {
 
-        $this->middleware('admin',compact('snames'));
+        $this->middleware('admin');
     }
 
     public function index()

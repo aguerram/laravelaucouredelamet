@@ -48,4 +48,15 @@ class HomeController extends Controller
         $user->load(['subprojects']);
         return view('profile.index',compact('user'));
     }
+
+    public function destroySB($id)
+    {
+
+        $sb = SubProject::findOrFail($id);
+        if(Auth::user()->id === $sb->user_id)
+        {
+            $sb->delete();
+        }
+        return redirect('/profil');
+    }
 }
