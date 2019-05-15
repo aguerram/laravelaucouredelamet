@@ -45,7 +45,7 @@ class HomeController extends Controller
     public function profile(Request $request)
     {
         $user = Auth::user();
-        $user->load(['subprojects']);
+
         return view('profile.index',compact('user'));
     }
 

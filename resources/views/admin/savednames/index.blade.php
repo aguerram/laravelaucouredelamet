@@ -20,11 +20,18 @@
                 @foreach($snames as $sn)
                     <tr>
                         <td>{{$sn->id}}</td>
-                        <td>{{$sn->user_id>0?$sn->user_id:''}}</td>
+                        <td>
+                            @if($sn->user_id>0)
+                                <span class="badge badge-danger">Oui</span>
+                            @else
+                                <span class="badge badge-success">No</span>
+                            @endif
+                        </td>
                         <td>{{substr($sn->name,0,strpos($sn->name,' '))}}</td>
                         <td>{{substr($sn->name,strpos($sn->name,' '))}}</td>
                         <td class="row">
-                            <a href="/admin/membername/{{$sn->id}}/edit" title="Modifier" class="btn btn-warning btn-sm"><i
+                            <a href="/admin/membername/{{$sn->id}}/edit" title="Modifier"
+                               class="btn btn-warning btn-sm"><i
                                         class="fa fa-pencil"></i></a>
                             &nbsp;<div class="dropdown open">
                                 <button class="btn btn-danger dropdown-toggle btn-sm" type="button" id="triggerId"

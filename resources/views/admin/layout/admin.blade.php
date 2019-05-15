@@ -39,10 +39,7 @@
             </li>
             
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Chercher">
-            <button class="btn btn-success my-2 my-sm-0" type="submit">Chercher</button>
-        </form>
+
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

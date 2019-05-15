@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@push('projets') active @endpush
 @section('title')
     {{$project->title}}
 @endsection

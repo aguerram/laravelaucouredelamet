@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@push('accueil') active @endpush
 @section('title')
     Accueil
 @endsection

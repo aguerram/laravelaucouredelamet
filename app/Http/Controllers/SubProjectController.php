@@ -93,9 +93,10 @@ class SubProjectController extends Controller
      * @param  \App\SubProject $subProject
      * @return \Illuminate\Http\Response
      */
-    public function edit(SubProject $subProject)
+    public function edit($subProject)
     {
-        //
+        $sb = SubProject::findOrFail($subProject);
+        return view('subproject.edit',compact('sb'));
     }
 
     /**
@@ -105,9 +106,36 @@ class SubProjectController extends Controller
      * @param  \App\SubProject $subProject
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SubProject $subProject)
+    public function update(Request $request, $subProject)
     {
-        //
+        $sb = SubProject::findOrFail($subProject);
+        $request->validate([
+            'title' => 'required|max:191',
+            'content' => 'required',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after:start_date',
+            'images.*' => 'required|image',
+        ], [
+            'end_date.after' => 'Date de fin doit être aprés date de fin',
+            'images.*.image' => 'Seuls les fichiers image sont autorisés'
+        ]);
+        $sb->title = $request->title;
+        $sb->start_date = $request->start_date;
+        $sb->end_date = $request->end_date;
+        $sb->end_date = $request->end_date;
+        $sb->content = $request->input('content');
+        $sb->save();
+        if ($request->has('images') && $images = $request->file('images')) {
+            foreach ($images as $image) {
+                $link = $image->store('images');
+                \App\Image::create([
+                    'link' => $link,
+                    'parent_id' => $sb->id,
+                    'type' => 'subproject'
+                ]);
+            }
+        }
+        return back()->with('success','votre projet a été modifié');
     }
 
     /**
@@ -116,8 +144,12 @@ class SubProjectController extends Controller
      * @param  \App\SubProject $subProject
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SubProject $subProject)
+    public function destroy($subProject)
     {
-        //
+        $sb = SubProject::findOrFail($subProject);
+        $pid = $sb->project_id;
+        $sb->delete();
+        return redirect('/projet/'.$pid);
     }
+
 }

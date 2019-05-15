@@ -11,6 +11,7 @@
                 <tr>
                     <th>ID</th>
                     <th style="width: 200px">Titre</th>
+                    <th>Contenu</th>
                     <th>Date debut</th>
                     <th>Date de fin</th>
                     <th>Image</th>
@@ -22,6 +23,7 @@
                     <tr>
                         <td>{{$sn->id}}</td>
                         <td class="text-justify">{{$sn->title}}</td>
+                        <td class="text-justify">{{$sn->content}}</td>
                         <td><small>{{$sn->start_date}}</small></td>
                         <td><small>{{$sn->end_date}}</small></td>
                         <td>

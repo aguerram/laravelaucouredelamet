@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col pb-5">
-            <h2>Modifier projet</h2>
+            <h2>Modifier le projet</h2>
             <div class="row justify-content-center">
                 <form action="/admin/project/{{$project->id}}" method="post" class="col-12 col-md-8" enctype="multipart/form-data">
                     @csrf
@@ -28,7 +28,7 @@
                                 <input type="date" name="end_date" value="{{$project->end_date}}" class="form-control">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-success">Ajouter</button>
+                                <button type="submit" class="btn btn-success">Enregistrer</button>
                             </div>
                         </div>
                         @if(count($errors->all())>0)
