@@ -29,6 +29,11 @@ class HomeController extends Controller
         $projects = Project::with(['images'])->orderBy('created_at','desc')->get();
         return view('home',compact('projects'));
     }
+    public function projets()
+    {
+        $projects = Project::with(['images'])->orderBy('created_at','desc')->get();
+        return view('projets',compact('projects'));
+    }
     public function projetIndex(Project $project)
     {
         $subprojects = SubProject::where('active',true)->orderBy('created_at','desc');

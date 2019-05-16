@@ -58,7 +58,7 @@
                     <a class="nav-link" href="/">Accueil</a>
                 </li>
                 <li class="nav-item @stack('projets')">
-                    <a class="nav-link" href="#">Projets de l’association</a>
+                    <a class="nav-link" href="/projects">Projets de l’association</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Mes projets professionnels</a>
@@ -67,11 +67,16 @@
                     <a class="nav-link" href="#">Mes projet entrepreneurials</a>
                 </li>
 
+
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Chercher">
+                    <button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+                </form>
                 @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">S'identifier</a>
@@ -105,28 +110,10 @@
                         </div>
                     </li>
                 @endguest
+
             </ul>
         </div>
     </nav>
-    <nav class="navbar navbar-expand-sm navbar-light bg-white border-top">
-        <div class="container">
-            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
-                    data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Chercher">
-                    <button class="btn btn-success my-2 my-sm-0" type="submit">Chercher</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-
     <main class="py-4">
         <div class="topContainer">
             <button onclick="toTop()" class="btn"><i class="fa fa-arrow-up"></i></button>
