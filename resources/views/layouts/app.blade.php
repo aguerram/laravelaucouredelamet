@@ -43,8 +43,8 @@
     <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{asset('images/logo.PNG')}}" height="64px">
-            {{ config('app.name', 'Laravel') }}
         </a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="{{ __('Toggle navigation') }}">
@@ -54,6 +54,18 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
+                <li class="nav-item @stack('accueil')">
+                    <a class="nav-link" href="/">Accueil</a>
+                </li>
+                <li class="nav-item @stack('projets')">
+                    <a class="nav-link" href="#">Projets de l’association</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Mes projets professionnels</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Mes projet entrepreneurials</a>
+                </li>
 
             </ul>
 
@@ -105,18 +117,6 @@
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item @stack('accueil')">
-                        <a class="nav-link" href="/">Accueil</a>
-                    </li>
-                    <li class="nav-item @stack('projets')">
-                        <a class="nav-link" href="#">Projets de l’association</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Mes projets professionnels</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Mes projet entrepreneurials</a>
-                    </li>
 
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
