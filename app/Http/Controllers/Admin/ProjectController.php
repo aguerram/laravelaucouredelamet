@@ -46,7 +46,7 @@ class ProjectController extends Controller
             'start_date' => 'required|date',
             'end_date' => 'required|date|after:start_date'
         ], [
-            'end_date.after' => 'Date de fin doit être aprés date de fin',
+            'end_date.after' => 'Date de fin doit être aprés date de début',
             'images.*.image'=>'Seuls les fichiers image sont autorisés'
         ]);
 
@@ -109,7 +109,7 @@ class ProjectController extends Controller
             'start_date' => 'required|date',
             'end_date' => 'required|date|after:start_date'
         ], [
-            'end_date.after' => 'Date de fin doit être aprés date de fin',
+            'end_date.after' => 'Date de fin doit être aprés date de début',
             'images.*.image'=>'Seuls les fichiers image sont autorisés'
         ]);
 

@@ -12,6 +12,12 @@ Route::resource('member','Admin\MemberController');
 Route::resource('membername','Admin\SavedNamesController');
 Route::resource('project','Admin\ProjectController');
 Route::resource('subproject','Admin\SubProjectController');
+Route::resource('proproject','Admin\ProProjectController');
+Route::resource('entrproject','Admin\EntrProjectController');
+
+Route::get('proproject/activate/{sb}','Admin\ProProjectController@valider');
+Route::get('entrproject/activate/{sb}','Admin\EntrProjectController@valider');
+
 Route::get('subproject/activate/{sb}','Admin\SubProjectController@valider');
 
 Route::redirect('/', 'admin/member');

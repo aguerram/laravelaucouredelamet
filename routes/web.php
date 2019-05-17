@@ -22,6 +22,8 @@ Route::get('/projet/{project}', 'HomeController@projetIndex')->name('projet');
 Route::get('/profile','HomeController@profile');
 
 Route::resource('comment','CommentController');
+Route::resource('proproject','ProProjectsController');
+Route::resource('entrproject','EntrProjectsController');
 
 Route::resource('subproject','SubProjectController');
 Route::get('subproject/add/{project}','SubProjectController@createSB')->where([

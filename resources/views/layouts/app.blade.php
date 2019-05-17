@@ -60,11 +60,11 @@
                 <li class="nav-item @stack('projets')">
                     <a class="nav-link" href="/projects">Projets de l’association</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Mes projets professionnels</a>
+                <li class="nav-item @stack('proprojets')">
+                    <a class="nav-link" href="/proproject">Mes projets professionnels</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Mes projet entrepreneurials</a>
+                <li class="nav-item @stack('entrprojets')">
+                    <a class="nav-link" href="/entrproject">Mes projet entrepreneurials</a>
                 </li>
 
 

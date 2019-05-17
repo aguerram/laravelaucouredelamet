@@ -37,6 +37,13 @@
             <li class="nav-item">
                 <a class="nav-link @stack('subprojects')" href="/admin/subproject">Sous-projets</a>
             </li>
+
+            <li class="nav-item @stack('proprojets')">
+                <a class="nav-link @stack('proprojects')" href="/admin/proproject">Les projets professionnels</a>
+            </li>
+            <li class="nav-item @stack('entrprojects')">
+                <a class="nav-link" href="/admin/entrproject">Les projet entrepreneurials</a>
+            </li>
             
         </ul>
 

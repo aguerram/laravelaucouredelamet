@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    {{$sb->title}}
+   {{$sb->title}}
 @endsection
 @section('content')
     <div class="container">
@@ -8,21 +8,19 @@
             <div class="col-md-8 col-12">
                 <nav class="breadcrumb">
                     <a class="breadcrumb-item" href="/">Accueil</a>
-                    <a class="breadcrumb-item" href="/projet/{{$sb->project->id}}">{{$sb->project->title}}
-                        <small>(Projet global)</small></a>
+                    <a class="breadcrumb-item" href="/proproject/">Mes projets professionnels</a>
                     <span class="breadcrumb-item active">{{$sb->title}}</span>
                 </nav>
                 <div class="card">
 
                     <h1 class="px-3 pt-3 text-justify">{{$sb->title}}</h1>
                     <p class="px-3 d-flex justify-content-between">
-                        <i class=" fa fa-user"> {{$sb->user->name}}</i>
                         <i class="fa fa-clock-o"> {{$sb->created_at}}</i>
                     </p>
                     <hr/>
                     <div id="projetcs" class="card-body">
                         <p class="text-justify">
-                            {{$sb->content}}
+                            {{$sb->body}}
                         </p>
 
                         <table class="table">

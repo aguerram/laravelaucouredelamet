@@ -42,4 +42,12 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\SubProject');
     }
+    public function proprojects()
+    {
+        return $this->hasMany('App\ProProjects');
+    }
+    public function entrprojects()
+    {
+        return $this->hasMany('App\EntrProjects');
+    }
 }
