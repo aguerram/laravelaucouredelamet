@@ -92,7 +92,6 @@ class MemberController extends Controller
         $sname = SavedName::where(['name'=>$name])->first();
         $sname->user_id = 0;
         $sname->save();
-
         $user->delete();
 
         return back();

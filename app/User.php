@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','datene','address'
     ];
 
     /**
@@ -37,7 +37,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         //'active'=>'boolean'
     ];
-
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
     public function subprojects()
     {
         return $this->hasMany('App\SubProject');
@@ -49,5 +52,16 @@ class User extends Authenticatable
     public function entrprojects()
     {
         return $this->hasMany('App\EntrProjects');
+    }
+    public static function boot() {
+        parent::boot();
+
+        static::deleting(function($user) { // before delete() method call this
+            $user->entrprojects()->delete();
+            $user->proprojects()->delete();
+            $user->subprojects()->delete();
+            $user->comments()->delete();
+            // do the rest of the cleanup...
+        });
     }
 }

@@ -35,14 +35,17 @@
                                     <select class="form-control" name="name" id="your_name2">
                                         <option value="" disabled selected>Nom Complete</option>
                                         @foreach($sname as $sn)
-                                            <option value="{{$sn->name}}">{{$sn->name}}</option>
+                                            <option value="{{$sn->name}}" {{old('name') === $sn->name?'selected':''}}>{{$sn->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="your_name"><i class="fa fa-user"></i></label>
-                                    <input type="text" value="{{ old('email') }}" name="email" id="your_name"
-                                           placeholder="Votre Email"/>
+                                    <label for="your_name"><i class="fa fa-calendar"></i></label>
+                                    <input type="date" value="{{ old('datene') }}" name="datene"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adre"><i class="fa fa-map"></i></label>
+                                    <textarea style="padding-left: 28px;" id="adre" class="form-control" name="address">{{ old('address')}}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="your_pass"><i class="fa fa-key"></i></label>

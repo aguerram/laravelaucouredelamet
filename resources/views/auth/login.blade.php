@@ -33,7 +33,7 @@
                             <div class="form-group">
                                 <label for="your_name"><i class="fa fa-user"></i></label>
                                 <input type="text" value="{{ old('email') }}" name="email" id="your_name"
-                                       placeholder="Votre Email"/>
+                                       placeholder="Nom d'utilisateur"/>
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="fa fa-key"></i></label>
