@@ -27,22 +27,23 @@
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
                    aria-expanded="false">Membres</a>
                 <div class="dropdown-menu" aria-labelledby="dropdownId">
-                    <a class="dropdown-item" href="/admin/membername">Géstion des bénéficiaires</a>
-                    <a class="dropdown-item" href="/admin/member">Géstion des comptes</a>
+                    <a class="dropdown-item " href="/admin/membername">Gestion des béneficiaires</a>
+                    <a class="dropdown-item" href="/admin/member">Gestion des comptes</a>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link @stack('projects')" href="/admin/project">Projets globales</a>
+            <li class="nav-item dropdown @stack('projects') @stack('subprojects')">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownId2" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">Projets de l'association</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownId2">
+                    <a class="dropdown-item" href="/admin/project">Projets globales</a>
+                    <a class="dropdown-item" href="/admin/subproject">Sous-projets</a>
+                </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link @stack('subprojects')" href="/admin/subproject">Sous-projets</a>
-            </li>
-
             <li class="nav-item @stack('proprojets')">
-                <a class="nav-link @stack('proprojects')" href="/admin/proproject">Les projets professionnels</a>
+                <a class="nav-link @stack('proprojects')" href="/admin/proproject">Projets professionnels</a>
             </li>
             <li class="nav-item @stack('entrprojects')">
-                <a class="nav-link" href="/admin/entrproject">Les projet entrepreneurials</a>
+                <a class="nav-link" href="/admin/entrproject">Projet entrepreneurials</a>
             </li>
             
         </ul>
@@ -59,7 +60,7 @@
                     <a class="dropdown-item" href="/admin/logout"
                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                        Déconnexion
+                        Deconnexion
                     </a>
 
                     <form id="logout-form" action="/admin/logout" method="POST" style="display: none;">

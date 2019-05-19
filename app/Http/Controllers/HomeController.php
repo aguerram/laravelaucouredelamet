@@ -53,7 +53,24 @@ class HomeController extends Controller
         $user->load(['entrprojects','proprojects','subprojects']);
         return view('profile.index',compact('user'));
     }
-
+    public function profileEdit(Request $request)
+    {
+        $user = Auth::user();
+        $user->load(['entrprojects','proprojects','subprojects']);
+        return view('profile.edit',compact('user'));
+    }
+    public function profileEditSave(Request $request)
+    {
+        $request->validate([
+           'datene'=>'date|nullable',
+           'address'=>'string|max:255|nullable'
+        ]);
+        $user = Auth::user();
+        $user->datene = $request->datene;
+        $user->address = $request->address;
+        $user->save();
+        return back()->with('success','Votre profil a été modifié');
+    }
     public function destroySB($id)
     {
 

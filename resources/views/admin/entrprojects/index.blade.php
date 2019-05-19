@@ -13,7 +13,6 @@
                     <th>Date debut</th>
                     <th>Date de fin</th>
                     <th>Image</th>
-                    <th>Statut</th>
                     <th style="width: 92px">Action</th>
                 </tr>
                 </thead>
@@ -34,16 +33,18 @@
                                 <img width="200px" src="{{asset('storage/'.$s->images[0]->link)}}">
                             @endif
                         </td>
-                        <td>
+                        <!--<td>
                             @if($s->active)
                                 <i title="Activé" class="fa fa-check text-success"></i>
                             @else
                                 <i title="Non activé" class="fa fa-times text-danger"></i>
                             @endif
-                        </td>
+                        </td>-->
                         <td class="row">
                             <a href="/admin/{{Request::segment(2)}}/{{$s->id}}" title="Modifier" class="btn btn-warning btn-sm"><i
                                         class="fa fa-eye"></i></a>
+                            <a href="/admin/{{Request::segment(2)}}/{{$s->id}}/edit" title="Modifier" class="btn btn-success btn-sm"><i
+                                        class="fa fa-pencil"></i></a>
                             &nbsp;<div class="dropdown open">
                                 <button class="btn btn-danger dropdown-toggle btn-sm" type="button" id="triggerId"
                                         data-toggle="dropdown" aria-haspopup="true"

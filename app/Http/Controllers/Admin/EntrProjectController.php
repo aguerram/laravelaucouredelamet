@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\EntrProjects;
+use App\Image;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -65,7 +66,8 @@ class EntrProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        $project = EntrProjects::findOrFail($id);
+        return view('admin.entrprojects.edit',compact('project'));
     }
 
     /**
@@ -77,7 +79,40 @@ class EntrProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $prjt = EntrProjects::findOrFail($id);
+
+        $request->validate([
+            'title' => 'required|min:4|max:255|unique:projects,title,'.$id,
+            'body' => 'required|min:4',
+            'images.*'=>'required|image',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after:start_date'
+        ], [
+            'end_date.after' => 'Date de fin doit être aprés date de début',
+            'images.*.image'=>'Seuls les fichiers image sont autorisés'
+        ]);
+
+        $prjt->title = $request->title;
+        $prjt->start_date = $request->start_date;
+        $prjt->end_date = $request->end_date;
+        $prjt->body = $request->input('body');
+
+        if($request->has('images') && $images = $request->file('images'))
+        {
+            $prjt->images()->delete();
+            foreach ($images as $image)
+            {
+                $link = $image->store('images');
+                Image::create([
+                    'link'=>$link,
+                    'parent_id'=>$prjt->id,
+                    'type'=>'entrproject'
+                ]);
+            }
+        }
+
+        $prjt->save();
+        return redirect('/admin/entrproject');
     }
 
     /**

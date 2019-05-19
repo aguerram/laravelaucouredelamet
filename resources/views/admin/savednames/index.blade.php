@@ -3,14 +3,14 @@
 @section('content')
     <div class="row">
         <div class="col">
-            <h2>Géstion des noms des bénéficiaires</h2>
+            <h2>Gestion des noms des bénéficiaires</h2>
             <a href="/admin/membername/create" class="btn btn-success">Ajouter un nouveau nom</a>
             <br>
             <table class="table table-striped mt-2">
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Compte créer</th>
+                    <th>Compte crée</th>
                     <th>Nom</th>
                     <th>Prénom</th>
                     <th>Action</th>
@@ -24,7 +24,7 @@
                             @if($sn->user_id>0)
                                 <span class="badge badge-danger">Oui</span>
                             @else
-                                <span class="badge badge-success">No</span>
+                                <span class="badge badge-success">Non</span>
                             @endif
                         </td>
                         <td>{{substr($sn->name,0,strpos($sn->name,' '))}}</td>

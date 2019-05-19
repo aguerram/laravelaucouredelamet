@@ -29,18 +29,6 @@
                     <i class="fa fa-clock-o"> {{$sb->created_at}}</i>
                 </p>
                 <hr/>
-                <div class="row justify-content-end">
-                    <div class="btn-group">
-                        @if(!$sb->active)
-                            <a href="/admin/subproject/activate/{{$sb->id}}" class="btn btn-success"><i class="fa fa-check"></i> Valider</a>
-                        @endif
-                        <form action="/admin/subproject/{{$sb->id}}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Supprimer</button>
-                        </form>
-                    </div>
-                </div>
                 <div id="projetcs" class="card-body">
                     <p class="text-justify">
                         {{$sb->content}}

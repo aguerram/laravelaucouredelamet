@@ -64,7 +64,7 @@
                     <a class="nav-link" href="/proproject">Mes projets professionnels</a>
                 </li>
                 <li class="nav-item @stack('entrprojets')">
-                    <a class="nav-link" href="/entrproject">Mes projet entrepreneurials</a>
+                    <a class="nav-link" href="/entrproject">Mes projets d'entrepreneuriat</a>
                 </li>
 
 

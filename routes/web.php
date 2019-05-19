@@ -20,6 +20,8 @@ Route::get('/projects', 'HomeController@projets');
 Route::get('/projet/{project}', 'HomeController@projetIndex')->name('projet');
 
 Route::get('/profile','HomeController@profile');
+Route::get('/profile/edit','HomeController@profileEdit');
+Route::post('/profile/edit','HomeController@profileEditSave');
 
 Route::resource('comment','CommentController');
 Route::resource('proproject','ProProjectsController');

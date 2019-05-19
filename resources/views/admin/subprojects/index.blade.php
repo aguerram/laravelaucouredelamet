@@ -44,8 +44,14 @@
                             @endif
                         </td>
                         <td class="row">
-                            <a href="/admin/subproject/{{$s->id}}" title="Modifier" class="btn btn-warning btn-sm"><i
+                            @if(!$s->active)
+                                <a href="/admin/subproject/activate/{{$s->id}}" class="btn btn-success btn-sm"><i
+                                            class="fa fa-check"></i> Valider</a>
+                            @endif
+                            <a href="/admin/subproject/{{$s->id}}" title="Afficher" class="btn btn-warning btn-sm"><i
                                         class="fa fa-eye"></i></a>
+                            <a href="/admin/subproject/{{$s->id}}/edit" title="Modifier" class="btn btn-success btn-sm"><i
+                                        class="fa fa-pencil"></i></a>
                             &nbsp;<div class="dropdown open">
                                 <button class="btn btn-danger dropdown-toggle btn-sm" type="button" id="triggerId"
                                         data-toggle="dropdown" aria-haspopup="true"
