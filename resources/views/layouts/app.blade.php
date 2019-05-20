@@ -19,20 +19,22 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-        .topContainer{
+        .topContainer {
             position: fixed;
             bottom: 12px;
             right: 12px;
             padding: 4px;
             background-color: white;
             border-radius: 50%;
-            border:1px solid #8a8484;
+            border: 1px solid #8a8484;
         }
-        .topContainer > button{
+
+        .topContainer > button {
             font-size: 19px;
             color: #8a8484;
         }
-        .topContainer > button:focus{
+
+        .topContainer > button:focus {
             box-shadow: none;
         }
     </style>
@@ -54,6 +56,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
+
+                <form action="/search" method="get" class="form-inline my-2 my-lg-0">
+                    <input name="s" class="form-control mr-sm-2" type="text" value="{{Request::input('s')}}"
+                           placeholder="Chercher">
+                    <button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+                </form>
+
+            </ul>
+
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Authentication Links -->
+
                 <li class="nav-item @stack('accueil')">
                     <a class="nav-link" href="/">Accueil</a>
                 </li>
@@ -66,17 +81,9 @@
                 <li class="nav-item @stack('entrprojets')">
                     <a class="nav-link" href="/entrproject">Mes projets d'entrepreneuriat</a>
                 </li>
-
-
-            </ul>
-
-            <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
-                <!-- Authentication Links -->
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Chercher">
-                    <button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
-                </form>
+                <li class="nav-item" style="color: #e8e0e0; margin-top: 7px;font-weight: bold">
+                    |
+                </li>
                 @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">S'identifier</a>
@@ -122,8 +129,8 @@
     </main>
     @yield('script')
     <script>
-        function toTop(){
-            window.scrollTo(0,0)
+        function toTop() {
+            window.scrollTo(0, 0)
         }
     </script>
 </div>

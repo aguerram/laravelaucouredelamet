@@ -81,4 +81,21 @@ class HomeController extends Controller
         }
         return redirect('/profil');
     }
+
+    public function search(Request $request)
+    {
+        if($request->has('s'))
+        {
+            $projects = Project::where('title','LIKE',"%$request->s%")
+                ->orWhere('content','LIKE',"%$request->s%")->get();
+
+            $sprojects = SubProject::where('title','LIKE',"%$request->s%")
+                ->orWhere('content','LIKE',"%$request->s%")->get();
+            return view('search',compact('projects','sprojects'));
+        }
+        else{
+            return redirect('/');
+        }
+
+    }
 }

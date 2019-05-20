@@ -19,6 +19,8 @@ Route::get('proproject/activate/{sb}','Admin\ProProjectController@valider');
 Route::get('entrproject/activate/{sb}','Admin\EntrProjectController@valider');
 
 Route::get('subproject/activate/{sb}','Admin\SubProjectController@valider');
+Route::get('comments','Admin\CommentsController@index');
+Route::delete('comments/{comment}','Admin\CommentsController@delete');
 
 Route::redirect('/', 'admin/member');
 

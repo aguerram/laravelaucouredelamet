@@ -40,10 +40,10 @@
                                 <i title="Non activé" class="fa fa-times text-danger"></i>
                             @endif
                         </td>-->
-                        <td class="row">
+                        <td class="btn-group">
                             <a href="/admin/{{Request::segment(2)}}/{{$s->id}}" title="Modifier" class="btn btn-warning btn-sm"><i
                                         class="fa fa-eye"></i></a>
-                            <a href="/admin/{{Request::segment(2)}}/{{$s->id}}/edit" title="Modifier" class="btn btn-success btn-sm"><i
+                            <a href="/admin/{{Request::segment(2)}}/{{$s->id}}/edit" title="Modifier" class="btn btn-success btn-sm ml-1"><i
                                         class="fa fa-pencil"></i></a>
                             &nbsp;<div class="dropdown open">
                                 <button class="btn btn-danger dropdown-toggle btn-sm" type="button" id="triggerId"

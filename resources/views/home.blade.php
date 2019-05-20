@@ -40,43 +40,50 @@
         <div class="row justify-content-center mt-2">
             <div class="col-md-8 col-12">
                 <div class="card">
-                    <div class="card-header">Les projet de l'association au coeur de l'amitié</div>
+                    <div class="card-header">Contactez nous</div>
 
                     <div id="projetcs" class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-                        <br>
-                        @foreach($projects as $prjt)
-                            <div class="media mb-4">
-                                @if(count($prjt->images)>0)
-                                    <img src="{{asset('storage/'. $prjt->images->first()->link)}}" class="mr-3 col-3"
-                                         alt="...">
-                                @endif
-                                <div class="media-body">
-                                    <h5 class="mt-0 text-black">{{$prjt->title}}</h5>
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td style="font-size: 16px" valign="top"><i class="fa fa-map-marker"></i></td>
+                                <td><b style="font-size: 16px">Adresse de notre espace d’accueil</b>
                                     <p class="text-justify">
-                                        @if(strlen($prjt->content)>200)
-                                            {{substr($prjt->content,0,200)}}...
-                                        @else
-                                            {{$prjt->content}}
-                                        @endif
-                                        <br>
-                                        <a href="/projet/{{$prjt->id}}" class="readmore btn btn-sm btn-secondary">Lire
-                                            la suite</a>
-                                        <br>
-                                        <small><i class="fa fa-clock-o"></i> {{$prjt->created_at}}</small>
+                                        Maison qui fait l’angle de l’avenue Istiklal (*), et de la rue Khabazine, entrée
+                                        par
+                                        la rue porte numéro 5, quartier BAB DOUKALLA.
+                                        (*) l’avenue Istiklal se situe à l’intérieur de l’ancienne médina, débute à la
+                                        porte
+                                        qui donne sur le port, traverse la place de l’horloge et va jusqu’à bab doukala.
                                     </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 16px" valign="top"><i class="fa fa-phone"></i></td>
+                                <td><b style="font-size: 16px">Téléphone de notre espace d’accueil</b>
+                                    <p class="text-justify">
+                                        <span style="color: #00AD5F">+212 (0) 5 24 78 35 63</span>
 
-                                </div>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 16px" valign="top"><i class="fa fa-envelope"></i></td>
+                                <td><b style="font-size: 16px">Email de groupe</b>
+                                    <p class="text-justify">
+                                        <span style="color: #00AD5F">aucoeurdelamitie2002@yahoo.fr</span>
 
-                            </div>
-                        @endforeach
+                                    </p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
+        <br>
+        <br>
+        <br>
     </div>
 @endsection

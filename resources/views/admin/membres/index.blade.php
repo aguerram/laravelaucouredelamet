@@ -9,7 +9,7 @@
                 <th>ID</th>
                 <th>Nom</th>
                 <th>Prénom</th>
-                <th>Utilisateur</th>
+                <th>Nom d'utilisateur</th>
                 <th>Créé à</th>
                 <th>Etat actuel</th>
                 <th>Action</th>

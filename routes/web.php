@@ -21,6 +21,7 @@ Route::get('/projet/{project}', 'HomeController@projetIndex')->name('projet');
 
 Route::get('/profile','HomeController@profile');
 Route::get('/profile/edit','HomeController@profileEdit');
+Route::get('/search','HomeController@search');
 Route::post('/profile/edit','HomeController@profileEditSave');
 
 Route::resource('comment','CommentController');

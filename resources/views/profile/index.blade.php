@@ -8,10 +8,10 @@
             <div class="col-12 col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <div class="d-flex justify-content-center align-items-center flex-column">
+                        <!--<div class="d-flex justify-content-center align-items-center flex-column">
                             <img style="width: 96px;height: 96px;border-radius: 50%" src="{{asset('storage/images/c82OiMJod3Ja90Po0dAR1eJChUY2RvIdkKqtcW2u.jpeg')}}">
                             <button class="btn">Modifier</button>
-                        </div>
+                        </div>-->
                         <h4 class="card-title">{{$user->name}}</h4>
                         <hr>
                         <p class="card-text">Créé a : <b>{{$user->created_at}}</b></p>

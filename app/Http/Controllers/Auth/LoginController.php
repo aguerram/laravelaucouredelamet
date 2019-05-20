@@ -51,22 +51,32 @@ class LoginController extends Controller
 
         if ($this->attemptLogin($request)) {
             return $this->sendLoginResponse($request);
-        }
-        else{
+        } else {
             $user = User::where([
-                'email'=>$request->email
+                'email' => $request->email
             ])->first();
-            if($user && Hash::check($request->password,$user->password))
-            {
-                return back()->withInput()->with('error','Votre compte n\'est pas activé.');
+            if ($user && Hash::check($request->password, $user->password)) {
+                return back()->withInput()->with('error', 'Votre compte n\'est pas activé.');
             }
         }
         $this->incrementLoginAttempts($request);
 
         return $this->sendFailedLoginResponse($request);
     }
-    protected function credentials(Request $request) {
+
+    protected function credentials(Request $request)
+    {
         return array_merge($request->only('email', 'password'), ['active' => 1]);
+    }
+
+    protected function validateLogin(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|string',
+            'password' => 'required|string',
+        ],[
+            'email.required'=>"Le champ nom d'utilisateur est requis."
+        ]);
     }
 
 }

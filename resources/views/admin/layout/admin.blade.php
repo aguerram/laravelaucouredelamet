@@ -43,7 +43,10 @@
                 <a class="nav-link @stack('proprojects')" href="/admin/proproject">Projets professionnels</a>
             </li>
             <li class="nav-item @stack('entrprojects')">
-                <a class="nav-link" href="/admin/entrproject">Projet entrepreneurials</a>
+                <a class="nav-link" href="/admin/entrproject">Projet d'entrepreneurials</a>
+            </li>
+            <li class="nav-item @stack('comments')">
+                <a class="nav-link" href="/admin/comments">Gestion des commentaires</a>
             </li>
             
         </ul>
@@ -55,8 +58,6 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a href="/admin/profile" class="dropdown-item">
-                    Mon profil</a>
                     <a class="dropdown-item" href="/admin/logout"
                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
