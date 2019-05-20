@@ -56,20 +56,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-
-                <form action="/search" method="get" class="form-inline my-2 my-lg-0">
-                    <input name="s" class="form-control mr-sm-2" type="text" value="{{Request::input('s')}}"
-                           placeholder="Chercher">
-                    <button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
-                </form>
-
-            </ul>
-
-            <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
-                <!-- Authentication Links -->
-
-                <li class="nav-item @stack('accueil')">
+				<li class="nav-item @stack('accueil')">
                     <a class="nav-link" href="/">Accueil</a>
                 </li>
                 <li class="nav-item @stack('projets')">
@@ -81,9 +68,18 @@
                 <li class="nav-item @stack('entrprojets')">
                     <a class="nav-link" href="/entrproject">Mes projets d'entrepreneuriat</a>
                 </li>
-                <li class="nav-item" style="color: #e8e0e0; margin-top: 7px;font-weight: bold">
-                    |
-                </li>
+                
+
+            </ul>
+
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Authentication Links -->
+				<form action="/search" method="get" class="form-inline my-2 my-lg-0">
+                    <input name="s" class="form-control mr-sm-2" type="text" value="{{Request::input('s')}}"
+                           placeholder="Chercher">
+                    <button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+                </form>
                 @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">S'identifier</a>
