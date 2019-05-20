@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col pb-5">
-            <h2>Ajouter nouveau projet</h2>
+            <h2>Ajouter un nouveau projet</h2>
             <div class="row justify-content-center">
                 <form action="/admin/project" method="post" class="col-12 col-md-8" enctype="multipart/form-data">
                     @csrf
@@ -27,7 +27,7 @@
                                 <input type="date" name="end_date" value="{{old('end_date')}}" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label>Images</label>
+                                <label>Pièces jointes</label>
                                 <input type="file" accept="image/*" name="images[]" class="form-control" multiple>
                             </div>
                             <div class="form-group">

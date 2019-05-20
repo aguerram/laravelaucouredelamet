@@ -9,8 +9,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Titre</th>
-                    <th>Par</th>
-                    <th>Date debut</th>
+                    <th>Publié par</th>
+                    <th>Date de début</th>
                     <th>Date de fin</th>
                     <th>Image</th>
                     <th style="width: 92px">Action</th>

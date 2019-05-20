@@ -59,11 +59,7 @@
                                     {{session('error')}}
                                 </div>
                             @endif
-                            @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    J'ai oublié mon mot de passe ?
-                                </a>
-                            @endif
+                            
                         </form>
                         <div class="social-login">
                             <!-- <span class="social-label">Or login with</span>

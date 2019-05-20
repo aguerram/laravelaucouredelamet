@@ -24,7 +24,7 @@
             bottom: 12px;
             right: 12px;
             padding: 4px;
-            background-color: white;
+            background-color: black;
             border-radius: 50%;
             border: 1px solid #8a8484;
         }

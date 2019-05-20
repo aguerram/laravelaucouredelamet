@@ -3,14 +3,14 @@
 @section('content')
     <div class="row">
         <div class="col">
-            <h2>Liste des projets entrepreneurials</h2>
+            <h2>Liste des projets d'entrepreneuriat</h2>
             <table class="table table-striped">
                 <thead>
                 <tr>
                     <th>ID</th>
                     <th>Titre</th>
-                    <th>Par</th>
-                    <th>Date debut</th>
+                    <th>Publié par</th>
+                    <th>Date de début</th>
                     <th>Date de fin</th>
                     <th>Image</th>
                     <th style="width: 92px">Action</th>

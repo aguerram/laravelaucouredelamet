@@ -43,7 +43,7 @@
                 <a class="nav-link @stack('proprojects')" href="/admin/proproject">Projets professionnels</a>
             </li>
             <li class="nav-item @stack('entrprojects')">
-                <a class="nav-link" href="/admin/entrproject">Projet d'entrepreneurials</a>
+                <a class="nav-link" href="/admin/entrproject">Projets d'entrepreneuriat</a>
             </li>
             <li class="nav-item @stack('comments')">
                 <a class="nav-link" href="/admin/comments">Gestion des commentaires</a>

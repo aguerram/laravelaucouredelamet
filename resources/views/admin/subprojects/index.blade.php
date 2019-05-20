@@ -9,9 +9,9 @@
                 <tr>
                     <th>ID</th>
                     <th>Titre</th>
-                    <th>Titre de projet global</th>
-                    <th>Par</th>
-                    <th>Date debut</th>
+                    <th>Titre du projet global</th>
+                    <th>Publié par</th>
+                    <th>Date de début</th>
                     <th>Date de fin</th>
                     <th>Image</th>
                     <th>Statut</th>

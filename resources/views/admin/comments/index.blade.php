@@ -7,8 +7,8 @@
             <table class="table table-striped mt-2">
                 <thead>
                 <tr>
-                    <th>Par</th>
-                    <th>Titre de projet</th>
+                    <th>Ecrit par</th>
+                    <th>Titre du projet</th>
                     <th>Contenu</th>
                     <th>Action</th>
                 </tr>

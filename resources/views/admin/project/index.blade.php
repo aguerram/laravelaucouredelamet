@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col">
-            <h2>Gestion des projets</h2>
+            <h2>Gestion des projets globales</h2>
             <a href="/admin/project/create" class="btn btn-success">Ajouter un nouveau projet</a>
             <br>
             <table class="table table-striped">
@@ -12,7 +12,7 @@
                     <th>ID</th>
                     <th style="width: 200px">Titre</th>
                     <th>Contenu</th>
-                    <th>Date debut</th>
+                    <th>Date de début</th>
                     <th>Date de fin</th>
                     <th>Image</th>
                     <th style="width: 92px">Action</th>
