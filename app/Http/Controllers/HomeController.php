@@ -6,6 +6,7 @@ use App\Project;
 use App\SubProject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -26,57 +27,92 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $projects = Project::with(['images'])->orderBy('created_at','desc')->get();
-        return view('home',compact('projects'));
+        $users = \App\User::withCount('votes')->with('votes')->get()->sortBy(function($q){
+            return $q->votes()->count();
+        });
+        $projects = Project::with(['images'])->orderBy('created_at', 'desc')->get();
+        return view('home', compact('projects','users'));
     }
     public function projets()
     {
-        $projects = Project::with(['images'])->orderBy('created_at','desc')->get();
-        return view('projets',compact('projects'));
+        $projects = Project::with(['images'])->orderBy('created_at', 'desc')->get();
+        return view('projets', compact('projects'));
     }
     public function projetIndex(Project $project)
     {
-        $subprojects = SubProject::where('active',true)->orderBy('created_at','desc');
-        $project->load(['images','comments'=>function($query){
-            $query->orderBy('created_at','desc');
-        },'comments.user','comments.images','subprojects'=>function($query){
-            $query->where('active',true);
+        $subprojects = SubProject::where('active', true)->orderBy('created_at', 'desc');
+        $project->load(['images', 'comments' => function ($query) {
+            $query->orderBy('created_at', 'desc');
+        }, 'comments.user', 'comments.images', 'subprojects' => function ($query) {
+            $query->where('active', true);
         }]);
 
-        return view('project',compact('project','subprojects'));
+        return view('project', compact('project', 'subprojects'));
     }
 
     //Profile section
+    public function profileMember(Request $request,\App\User $user)
+    {
+        if($user->id == Auth::user()->id)
+            return redirect('/profile');
+        $voted = count(\App\Vote::where('owner_id',$user->id)->where('by',Auth::user()->id)->get())>0;
+
+        $user->load(['entrprojects', 'proprojects', 'subprojects','votes']);
+        return view('profile.user', compact('user','voted'));
+    }
+    public function vote(Request $request,\App\User $user)
+    {
+        $vote = \App\Vote::where('owner_id',$user->id)->where('by',Auth::user()->id)->get();
+        if(count($vote)<1)
+        {
+            \App\Vote::create([
+                'owner_id'=>$user->id,
+                'by'=>Auth::user()->id
+            ]);
+        }
+        
+        return back();
+    }
     public function profile(Request $request)
     {
         $user = Auth::user();
-        $user->load(['entrprojects','proprojects','subprojects']);
-        return view('profile.index',compact('user'));
+        $user->load(['entrprojects', 'proprojects', 'subprojects','votes']);
+        return view('profile.index', compact('user'));
     }
     public function profileEdit(Request $request)
     {
+
         $user = Auth::user();
-        $user->load(['entrprojects','proprojects','subprojects']);
-        return view('profile.edit',compact('user'));
+        $user->load(['entrprojects', 'proprojects', 'subprojects']);
+        return view('profile.edit', compact('user'));
     }
     public function profileEditSave(Request $request)
     {
         $request->validate([
-           'datene'=>'date|nullable',
-           'address'=>'string|max:255|nullable'
+            'datene' => 'date|nullable',
+            'address' => 'string|max:255|nullable',
+            'password' => 'nullable|confirmed|min:8|max:60'
+        ], [
+            'password.confirmed' => 'La confirmation de mot de pass ne corespond pas'
         ]);
         $user = Auth::user();
         $user->datene = $request->datene;
         $user->address = $request->address;
+        if ($request->has('password')) {
+            $password = $request->password;
+            if (strlen($password) >= 8) {
+
+                $user->password = Hash::make($password);
+            }
+        }
         $user->save();
-        return back()->with('success','Votre profil a été modifié');
+        return back()->with('success', 'Votre profil a été modifié');
     }
     public function destroySB($id)
     {
 
         $sb = SubProject::findOrFail($id);
-        if(Auth::user()->id === $sb->user_id)
-        {
+        if (Auth::user()->id === $sb->user_id) {
             $sb->delete();
         }
         return redirect('/profil');
@@ -84,18 +120,15 @@ class HomeController extends Controller
 
     public function search(Request $request)
     {
-        if($request->has('s'))
-        {
-            $projects = Project::where('title','LIKE',"%$request->s%")
-                ->orWhere('content','LIKE',"%$request->s%")->get();
+        if ($request->has('s')) {
+            $projects = Project::where('title', 'LIKE', "%$request->s%")
+                ->orWhere('content', 'LIKE', "%$request->s%")->get();
 
-            $sprojects = SubProject::where('title','LIKE',"%$request->s%")
-                ->orWhere('content','LIKE',"%$request->s%")->get();
-            return view('search',compact('projects','sprojects'));
-        }
-        else{
+            $sprojects = SubProject::where('title', 'LIKE', "%$request->s%")
+                ->orWhere('content', 'LIKE', "%$request->s%")->get();
+            return view('search', compact('projects', 'sprojects'));
+        } else {
             return redirect('/');
         }
-
     }
 }

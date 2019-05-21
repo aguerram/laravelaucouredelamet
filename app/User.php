@@ -53,6 +53,10 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\EntrProjects');
     }
+    public function votes()
+    {
+        return $this->hasMany('App\Vote','owner_id');
+    }
     public static function boot() {
         parent::boot();
 
@@ -60,6 +64,7 @@ class User extends Authenticatable
             $user->entrprojects()->delete();
             $user->proprojects()->delete();
             $user->subprojects()->delete();
+            $user->votes()->delete();
             $user->comments()->delete();
             // do the rest of the cleanup...
         });

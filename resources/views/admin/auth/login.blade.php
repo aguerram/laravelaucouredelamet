@@ -26,15 +26,21 @@
         <div class="wrap-login100">
             <div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
 					<span class="login100-form-title-1">
-						Se connecter
+                    <p>
+                        <img src="{{asset('images/logo.PNG')}}" style="max-width:256px"/>
+                    </p>  
+                    <p class="text-white">
+                    Association Au Coeur de l'Amitié Euro-Marocaine
+                    </p>  
+                    <p class="text-white">Se connecter</p>
 					</span>
             </div>
 
             <form class="login100-form validate-form" method="post" action="{{route('admin.login')}}">
                 @csrf
                 <div class="wrap-input100 validate-input m-b-26" data-validate="email est vide">
-                    <span class="label-input100">Email</span>
-                    <input class="input100" value="{{old('email')}}" type="email" name="email" placeholder="Entrer votre email">
+                    <span class="label-input100">Nom d'utilisateur</span>
+                    <input class="input100" value="{{old('email')}}" type="text" name="email" placeholder="Nom d'utilisateur">
                     <span class="focus-input100"></span>
                 </div>
 
@@ -52,11 +58,11 @@
                         </label>
                     </div>
 
-                    <div>
+                    <!--<div>
                         <a href="#" class="txt1">
                             Le mot de passe oublié?
                         </a>
-                    </div>
+                    </div>-->
                 </div>
 
                 <div class="container-login100-form-btn">

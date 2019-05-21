@@ -20,6 +20,9 @@ Route::get('/projects', 'HomeController@projets');
 Route::get('/projet/{project}', 'HomeController@projetIndex')->name('projet');
 
 Route::get('/profile','HomeController@profile');
+Route::get('/profile/{user}','HomeController@profileMember');
+Route::get('/vote/{user}','HomeController@vote');
+
 Route::get('/profile/edit','HomeController@profileEdit');
 Route::get('/search','HomeController@search');
 Route::post('/profile/edit','HomeController@profileEditSave');

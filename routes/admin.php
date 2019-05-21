@@ -7,8 +7,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('login','Admin\AuthController@authpage')->name('admin.login.page');
 Route::post('login','Admin\AuthController@login')->name('admin.login');
 Route::post('logout','Admin\AuthController@logout');
+Route::put('changepassword','Admin\AuthController@changepassword');
 
 Route::resource('member','Admin\MemberController');
+Route::get('member/forgot/{user}','Admin\MemberController@forgot');
 Route::resource('membername','Admin\SavedNamesController');
 Route::resource('project','Admin\ProjectController');
 Route::resource('subproject','Admin\SubProjectController');

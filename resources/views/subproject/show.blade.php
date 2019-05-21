@@ -16,8 +16,8 @@
 
                     <h1 class="px-3 pt-3 text-justify">{{$sb->title}}</h1>
                     <p class="px-3 d-flex justify-content-between">
-                        <i class=" fa fa-user"> {{$sb->user->name}}</i>
-                        <i class="fa fa-clock-o"> {{$sb->created_at}}</i>
+                        <a href="/profile/{{$sb->user->id}}"><i class=" fa fa-user"></i> {{$sb->user->name}}</a>
+                        <span><i class="fa fa-clock-o"> {{$sb->created_at}}</i></span>
                     </p>
                     <hr/>
                     <div id="projetcs" class="card-body">

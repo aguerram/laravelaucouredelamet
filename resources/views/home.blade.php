@@ -40,6 +40,33 @@
         <div class="row justify-content-center mt-2">
             <div class="col-md-8 col-12">
                 <div class="card">
+                    <div class="card-header">
+                        Meilleurs 10 membres
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                   <th>Nom</th> 
+                                   <th>Total des votes</th> 
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($users as $user)
+                            <tr>
+                                <td>
+                                    <a href="/profile/{{$user->id}}">{{$user->name}}</a>
+                                </td>
+                                <td>{{$user->votes_count}}</td>
+                            </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                </div>
+                <br>
+                <div class="card">
                     <div class="card-header">Contactez nous</div>
 
                     <div id="projetcs" class="card-body">

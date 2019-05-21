@@ -6,6 +6,7 @@ use App\SavedName;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class MemberController extends Controller
 {
@@ -89,7 +90,7 @@ class MemberController extends Controller
     {
         $user = User::findOrFail($id);
         $name = $user->name;
-        $sname = SavedName::where(['name'=>$name])->first();
+        $sname = SavedName::where(['name' => $name])->first();
         $sname->user_id = 0;
         $sname->save();
         $user->delete();
@@ -97,10 +98,16 @@ class MemberController extends Controller
         return back();
     }
 
-    public function toggle(Request $request,User $user)
+    public function toggle(Request $request, User $user)
     {
-        $user->active = $user->active == true?false:true;
+        $user->active = $user->active == true ? false : true;
         $user->save();
         return back();
+    }
+    public function forgot(Request $request, User $user)
+    {
+        $user->password = Hash::make('123456789');
+        $user->save();
+        return back()->with('success',"Le mot de passe de $user->name a été réinitialisé");
     }
 }

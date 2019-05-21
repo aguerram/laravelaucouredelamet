@@ -15,16 +15,19 @@
                         <h4 class="card-title">{{$user->name}}</h4>
                         <hr>
                         <p class="card-text">Créé a : <b>{{$user->created_at}}</b></p>
-                        <span  class="btn btn-secondary">Total des votes <span class="badge badge-success">{{count($user->votes)}}</span> </button>
+                        @if($voted)
+                        <span  class="btn btn-secondary">Total des votes <span class="badge badge-success">{{count($user->votes)}}</span> </span>
+
+                        @else
+                        <a href="/vote/{{$user->id}}" class="btn btn-primary">Voter <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <span class="badge badge-secondary">{{count($user->votes)}}</span> </a>
+
+                        @endif
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-8">
                 <div class="card-header text-center">Les informations personnel</div>
                 <div class="card-body bg-white">
-                    <a href="/profile/edit" class="btn btn-primary">Modifier</a>
-                    <br>
-                    <br>
                     <table class="table">
                         <tbody>
                         <tr>

@@ -25,12 +25,21 @@
                     @csrf
                     <div class="form-group">
                         <label for="your_name"><i class="fa fa-calendar"></i> Date de naissance</label>
-                        <input class="form-control" type="date" value="{{ $user->datene }}" name="datene"/>
+                        <input class="form-control" type="date" value="{{ old('datene')?old('datene'):$user->datene }}" name="datene"/>
                     </div>
                     <div class="form-group">
                         <label for="adre"><i class="fa fa-map"></i> Address</label>
                         <textarea id="adre" class="form-control"
-                                  name="address">{{ $user->address }}</textarea>
+                                  name="address">{{ old('address')?old('address'):$user->address }}</textarea>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label for="your_name"><i class="fa fa-key"></i> Nouveau mot de passe</label>
+                        <input class="form-control" type="password" name="password"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="your_name"><i class="fa fa-key"></i> Répéter le mot de passe</label>
+                        <input class="form-control" type="password" name="password_confirmation"/>
                     </div>
                     <div class="form-group d-flex justify-content-between">
                         <button type="submit" class="btn btn-success">Enregistrer</button>
