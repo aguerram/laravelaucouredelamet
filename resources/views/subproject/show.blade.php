@@ -22,7 +22,7 @@
                     <hr/>
                     <div id="projetcs" class="card-body">
                         <p class="text-justify">
-                            {{$sb->content}}
+                            {!!nl2br($sb->content)!!}
                         </p>
 
                         <table class="table">

@@ -27,9 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = \App\User::withCount('votes')->with('votes')->get()->sortBy(function($q){
-            return $q->votes()->count();
-        });
+        $users = \App\User::withCount('votes')->with('votes')->orderBy("votes_count",'desc')->limit(3)->get();
         $projects = Project::with(['images'])->orderBy('created_at', 'desc')->get();
         return view('home', compact('projects','users'));
     }
@@ -91,13 +89,19 @@ class HomeController extends Controller
         $request->validate([
             'datene' => 'date|nullable',
             'address' => 'string|max:255|nullable',
-            'password' => 'nullable|confirmed|min:8|max:60'
+            'password' => 'nullable|confirmed|min:8|max:60',
+            'ecole'=>'nullable|string|min:3|max:120',
+            'niveau'=>'nullable|string|min:3|max:120',
+            'filiere'=>'nullable|string|min:2|max:120',
         ], [
             'password.confirmed' => 'La confirmation de mot de pass ne corespond pas'
         ]);
         $user = Auth::user();
         $user->datene = $request->datene;
         $user->address = $request->address;
+        $user->ecole = $request->ecole;
+        $user->niveau = $request->niveau;
+        $user->filiere = $request->filiere;
         if ($request->has('password')) {
             $password = $request->password;
             if (strlen($password) >= 8) {

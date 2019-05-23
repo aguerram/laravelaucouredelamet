@@ -27,13 +27,21 @@
                     </div>
 
                     <div class="signin-form">
+                    <div class="d-flex align-items-center">
+                    <p>
+                        <img src="{{asset('images/logo.PNG')}}" style="max-width:256px"/>
+                    </p>  
+                    <p class="text-black text-center">
+                    Association Au Coeur de l'Amitié Euro-Marocaine
+                    </p> 
+                    </div>
                         @if(count($sname)>0)
-                            <h3 class="form-title">Créer un compte</h3>
+                            <h3 class="form-title text-center mt-5">Créer un compte</h3>
                             <form method="POST" action="{{ route('register') }}" class="register-form" id="login-form">
                                 @csrf
                                 <div class="form-group">
                                     <select class="form-control" name="name" id="your_name2">
-                                        <option value="" disabled selected>Nom Complete</option>
+                                        <option value="" disabled selected>Nom Complet</option>
                                         @foreach($sname as $sn)
                                             <option value="{{$sn->name}}" {{old('name') === $sn->name?'selected':''}}>{{$sn->name}}</option>
                                         @endforeach
@@ -46,7 +54,7 @@
                                 <div class="form-group">
                                     <label for="your_pass2"><i class="fa fa-key"></i></label>
                                     <input type="password" name="password_confirmation" id="your_pass2"
-                                           placeholder="Mot de passe"/>
+                                           placeholder="Confirmer le mot de passe"/>
                                 </div>
 
                                 <div class="form-group form-button">

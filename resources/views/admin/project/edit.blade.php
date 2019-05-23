@@ -27,6 +27,10 @@
                                 <label>Date de fin</label>
                                 <input type="date" name="end_date" value="{{$project->end_date}}" class="form-control">
                             </div>
+							<div class="form-group">
+                                <label>Pièces jointes</label>
+                                <input type="file" accept="image/*" name="images[]" class="form-control" multiple>
+                            </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success">Enregistrer</button>
                             </div>

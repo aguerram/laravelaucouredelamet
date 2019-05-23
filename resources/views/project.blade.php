@@ -44,7 +44,7 @@
                         <br>
 
                         <p class="text-justify">
-                            {{$project->content}}
+                            {!!nl2br($project->content)!!}
                         </p>
                         <table class="table">
                             <thead>

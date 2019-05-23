@@ -27,7 +27,7 @@
                                 <input type="date" name="end_date" value="{{old('end_date')}}" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label>Images</label>
+                                <label>Pièces jointes</label>
                                 <input type="file" accept="image/*" name="images[]" class="form-control" multiple>
                             </div>
                             <div class="form-group">

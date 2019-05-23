@@ -25,9 +25,18 @@
                         <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
                         <a href="{{route('register')}}" class="signup-image-link">Créer un compte</a>
                     </div>
-
+                    
                     <div class="signin-form">
-                        <h3 class="form-title">Se connecter</h3>
+                    <div class="d-flex align-items-center">
+                    <p>
+                        <img src="{{asset('images/logo.PNG')}}" style="max-width:256px"/>
+                    </p>  
+                    <p class="text-black text-center">
+                    Association Au Coeur de l'Amitié Euro-Marocaine
+                    </p> 
+                    </div>
+                        <h3 class="form-title text-center mt-5">Se connecter</h3>
+                        
                         <form method="POST" action="{{ route('login') }}" class="register-form" id="login-form">
                             @csrf
                             <div class="form-group">
@@ -58,11 +67,6 @@
                                 <div class="alert alert-danger">
                                     {{session('error')}}
                                 </div>
-                            @endif
-                            @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    J'ai oublié mon mot de passe ?
-                                </a>
                             @endif
                         </form>
                         <div class="social-login">

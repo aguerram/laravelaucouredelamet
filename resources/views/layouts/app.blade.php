@@ -42,7 +42,7 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-laravel">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{asset('images/logo.PNG')}}" height="64px">
         </a>

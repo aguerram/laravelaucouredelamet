@@ -23,7 +23,7 @@ Route::get('/profile','HomeController@profile');
 Route::get('/profile/{user}','HomeController@profileMember');
 Route::get('/vote/{user}','HomeController@vote');
 
-Route::get('/profile/edit','HomeController@profileEdit');
+Route::get('/profileedit','HomeController@profileEdit');
 Route::get('/search','HomeController@search');
 Route::post('/profile/edit','HomeController@profileEditSave');
 

@@ -32,6 +32,18 @@
                         <textarea id="adre" class="form-control"
                                   name="address">{{ old('address')?old('address'):$user->address }}</textarea>
                     </div>
+                    <div class="form-group">
+                        <label for="your_name"><i class="fa fa-graduation-cap"></i> École</label>
+                        <input class="form-control" type="text" value="{{ old('ecole')?old('ecole'):$user->ecole }}" name="ecole"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="your_name"><i class="fa fa-level-up"></i> Niveau scolaire</label>
+                        <input class="form-control" type="text" value="{{ old('niveau')?old('niveau'):$user->niveau }}" name="niveau"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="your_name"><i class="fa fa-clone"></i> Filiére</label>
+                        <input class="form-control" type="text" value="{{ old('filiere')?old('filiere'):$user->filiere }}" name="filiere"/>
+                    </div>
                     <hr>
                     <div class="form-group">
                         <label for="your_name"><i class="fa fa-key"></i> Nouveau mot de passe</label>

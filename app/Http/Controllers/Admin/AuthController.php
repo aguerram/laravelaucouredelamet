@@ -12,7 +12,7 @@ class AuthController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['guest:admin'])->except(['logout','changepassword']);
+        $this->middleware(['auth:admin'])->only(['logout','changepassword']);
     }
     public function authpage(Request $request)
     {

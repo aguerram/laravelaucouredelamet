@@ -25,15 +25,15 @@
     <div class="container-login100">
         <div class="wrap-login100">
             <div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
-					<span class="login100-form-title-1">
+					<div class="login100-form-title-1" style="text-transform: inherit !important;">
                     <p>
                         <img src="{{asset('images/logo.PNG')}}" style="max-width:256px"/>
                     </p>  
                     <p class="text-white">
                     Association Au Coeur de l'Amitié Euro-Marocaine
                     </p>  
-                    <p class="text-white">Se connecter</p>
-					</span>
+                    <h4 class="text-white pt-2">Se connecter</h4>
+					</div>
             </div>
 
             <form class="login100-form validate-form" method="post" action="{{route('admin.login')}}">

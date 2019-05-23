@@ -117,9 +117,10 @@ class ProjectController extends Controller
         $prjt->start_date = $request->start_date;
         $prjt->end_date = $request->end_date;
         $prjt->content = $request->input('content');
-        $prjt->save();
+        
         if($request->has('images') && $images = $request->file('images'))
         {
+			$prjt->images()->delete();
             foreach ($images as $image)
             {
                 $link = $image->store('images');
@@ -129,6 +130,7 @@ class ProjectController extends Controller
                 ]);
             }
         }
+		$prjt->save();
         return redirect('/admin/project');
     }
 
